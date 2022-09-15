@@ -6,6 +6,7 @@ This is a temporary script file.
 """
 # %%
 
+from cmath import pi
 from email.contentmanager import raw_data_manager
 from importlib import import_module
 from tkinter import N, Y
@@ -886,5 +887,41 @@ print(y3)
 i = eval(input('Please give a number: '))
 sumList = list((i for i in range(0,i+1,7)))
 print('The sum of multiples of 7 from 1 to %d is %d' %(i,sum(sumList)))
+
+# %%
+A = set()
+A.add(3)
+A.add('ABC')
+A.add(True)
+print(A)
+
+# %%
+X = {'a','b',1,2}
+Y = {1,2,'a','b'}
+print(X==Y)
+print(X)
+print(Y)
+
+# %%
+S1 = {1,1,2,2,2,2,3,3,5,5,6,6,6,}
+S2 = {6,3,1,5,2,2,5,3,1,2}
+print(S1==S2)
+print(S1)
+print(S2)
+
+# %%
+S1 = {1,2,3,4,5}
+S2 = {3,4,5,6,7}
+# S3 = S1 +S2 
+print(S1-S2)
+# print(S1[1:3])
+# print(S2[2])
+
+# %%
+A = {1,5,3,7,9,5,7,3}
+print(len(A))
+print(max(A))
+print(min(A))
+print(sum(A))
 
 # %%
