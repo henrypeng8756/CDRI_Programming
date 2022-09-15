@@ -987,3 +987,10 @@ print(dic.values())
 print(dic.items())
 
 # %%
+text = '''save the text to output
+1. A
+2. B
+3.C'''
+print(text,file=open('data.txt','w'))
+
+# %%
