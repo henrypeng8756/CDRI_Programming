@@ -925,3 +925,65 @@ print(min(A))
 print(sum(A))
 
 # %%
+X = {'A':567,'B':789}
+Y = {'B':789, 'A':567}
+print(X==Y)
+print(X)
+print(Y)
+
+# %%
+A = {'one':1, 'two':2, 'three':3}
+B = dict({'three':3, 'one':1, 'two':2 })
+C = dict(one=1, two=2, three=3)
+D = dict([('two',2),('one',1),('three',3)])
+print(A==B==C==D)
+print(A)
+print(B)
+print(C)
+print(D)
+
+# %%
+A = {}
+A['1']=10
+A['2']=20
+A['3']=30
+print(A)
+
+# %%
+A = {'one':1, 'two':2, 'three':3}
+del A['one']
+print(A)
+
+# %%
+A = {'one':1, 'two':2, 'three':3}
+X=A['one']
+print(X)
+A['two']=200
+print(A['two'])
+
+# %%
+A = {'a':1, 'b':2, 'c':3}
+B = {'a':1, 'b':2, 'c':9}
+print(A['a']==B['a'])
+print(A['b']==B['b'])
+print(A['c']==B['c'])
+print(1 in A)
+# print(a in A)
+print('a' in A)
+
+# %%
+A = {'a':1, 'b':2, 'c':3}
+B = {'a':7, 'b':2, 'c':9}
+# print(A+B)
+# print(A*2)
+# print(A[0])
+# print(A['a':'c'])
+
+# %%
+dic = {'X':123, 'Y':456, 'Z':789}
+print(dic)
+print(dic.keys())
+print(dic.values())
+print(dic.items())
+
+# %%
