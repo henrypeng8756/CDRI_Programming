@@ -847,11 +847,20 @@ print(c[1][1])
 
 # %%
 tup = (3,False,'XYZ')
-tup = a,b,c
+# tup = a,b,c
 a,b,c = tup
 print(a)
 print(b)
 print(c)
+
+# %%
+a, *b=(1,3,5,7,9)
+print(a)
+print(b)
+x, *y, z=(2,4,6,8,10)
+print(x)
+print(y)
+print(z)
 
 # %%
 x1 =[(1,2),[3,4]]
@@ -866,5 +875,16 @@ y2 =([5,6],(7,8))
 # x2[0][0] = 20
 y2[0][0] = 30
 print(y2)
+
+# %%
+x3 = [(1,2),[3,4]]
+y3 = list((i for i in range(10)))
+print(x3)
+print(y3)
+
+# %%
+i = eval(input('Please give a number: '))
+sumList = list((i for i in range(0,i+1,7)))
+print('The sum of multiples of 7 from 1 to %d is %d' %(i,sum(sumList)))
 
 # %%
