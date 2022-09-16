@@ -24,3 +24,29 @@ else:
     print(leapYear,'is not a leap year.')
 
 # %%
+a = eval(input())
+b = eval(input())
+opt = str(input())
+if opt == '+':
+    print(a+b)
+elif opt == '-':
+    print(a-b)
+elif opt == '*':
+    print(a*b)
+elif opt == '/':
+    print(a/b)
+elif opt == '//':
+    print(a//b)
+else:
+    print(a%b)
+
+# %%
+i = input()
+if i >= 'A' or i <= 'Z' and i >= 'a' or i <= 'z':
+    print(i, 'is a alphabet')
+elif i >= '0' and i <= '9':
+    print(i, 'is a number.')
+else:
+    print(i, 'is a symbol.')
+
+# %%
