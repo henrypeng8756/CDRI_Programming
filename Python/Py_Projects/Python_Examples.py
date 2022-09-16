@@ -994,3 +994,7 @@ text = '''save the text to output
 print(text,file=open('data.txt','w'))
 
 # %%
+data = {"name":"CityParkMsYaHei1602","dataColors":["#73B761","#4A588A","#ECC846","#CD4C46","#71AFE2","#8D6FD1","#EE9E64","#95DABB","#8FC581","#6E79A1","#F0D36B","#D7706B","#8DBFE8","#A48CDA","#F1B183","#AAE1C9","#568949","#384268","#B19635","#9A3935","#5583AA","#6A539D","#B3774B","#70A48C","#3A5C31","#252C45","#766423","#672623","#395871","#473869","#774F32","#4B6D5E"],"background":"#FFFFFF","foreground":"#070f25","tableAccent":"#0F1934","textClasses":{"label":{"fontFace":"'Microsoft Yahei'","fontSize":14},"callout":{"fontFace":"'Microsoft Yahei'","fontSize":23},"title":{"fontFace":"'Microsoft Yahei'","fontSize":14},"header":{"fontFace":"'Microsoft Yahei'","fontSize":14}}}
+for i in data:
+    print(i)
+    print(data[i],'\n')
