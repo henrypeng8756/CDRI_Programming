@@ -1,4 +1,7 @@
 # %%
+from curses.ascii import isalpha
+
+
 i = eval(input())
 if i%2 == 0:
     print('{:d}'.format(i),'is an even number.')
@@ -42,11 +45,35 @@ else:
 
 # %%
 i = input()
-if i >= 'A' or i <= 'Z' and i >= 'a' or i <= 'z':
+if i.isalpha() == True:
     print(i, 'is a alphabet')
-elif i >= '0' and i <= '9':
+elif i.isdigit() == True:
     print(i, 'is a number.')
 else:
     print(i, 'is a symbol.')
 
+# %%
+score = eval(input())
+if score >= 80:
+    print('A')
+elif score >= 70:
+    print('B')
+elif score >= 60:
+    print('C')
+else:
+    print('F')
+
+
+# %%
+price = eval(input())
+if price >= 38000:
+    print('%.1f' - '%d' * 0.7 % (price, price))
+elif price >= 28000:
+    print('%.1f' - '%d' * 0.8 % (price, price))
+elif price >= 18000:
+    print('%.1f' - '%d' * 0.9 % (price, price))
+elif price >= 8000:
+    print('%.1f' - '%d' * 0.95 % (price, price))
+else:
+    print('%.1f' %price)
 # %%
