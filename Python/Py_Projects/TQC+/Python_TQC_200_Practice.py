@@ -1,5 +1,6 @@
 # %%
 from curses.ascii import isalpha
+from os import initgroups
 
 
 i = eval(input())
@@ -67,13 +68,49 @@ else:
 # %%
 price = eval(input())
 if price >= 38000:
-    print('%.1f' - '%d' * 0.7 % (price, price))
+    print('%.1f' % (price*0.7))
 elif price >= 28000:
-    print('%.1f' - '%d' * 0.8 % (price, price))
+    print('%.1f' % (price*0.8))
 elif price >= 18000:
-    print('%.1f' - '%d' * 0.9 % (price, price))
+    print('%.1f' % (price*0.9))
 elif price >= 8000:
-    print('%.1f' - '%d' * 0.95 % (price, price))
+    print('%.1f' % (price*0.95))
 else:
-    print('%.1f' %price)
+    print('%.1f' % price)
+
+# %%
+num = eval(input('請輸入1-15: '))
+if num >= 10 and num <= 15:
+    print((str.upper(hex(num))).lstrip('0X'))
+else:
+    print(num)
+
+# %%
+import math
+x = eval(input())
+y = eval(input())
+dist = math.sqrt(math.pow(x-5,2)+math.pow(y-6,2))
+if dist <= 15:
+    print('Inside')
+else:
+    print('Outside')
+
+# %%
+import math
+math.sqrt(4)
+
+# %%
+a = eval(input())
+b = eval(input())
+c = eval(input())
+sortList = [a,b,c]
+sortList.sort()
+
+if sum(sortList[0:2]) > sortList[2]:
+    print(sum(sortList))
+else:
+    print('Invalid') 
+
+# %%
+
 # %%
