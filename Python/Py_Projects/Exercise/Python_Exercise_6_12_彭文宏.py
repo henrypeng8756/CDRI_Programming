@@ -10,8 +10,7 @@ valueNum = eval(input('Enter a number: '))
 for valueNum in range(1,valueNum+1):
     numList.append(valueNum)
     cleanstrList(numList)
-fixList = [*range(1,valueNum+1)]
-cleanstrList(fixList)
+cleanstrList(numList)
 for valueNum in range(1,valueNum+1):
     numList.pop()
     cleanstrList(numList)
