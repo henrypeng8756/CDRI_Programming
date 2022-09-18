@@ -53,9 +53,8 @@ for numb in range(1,a+1):
 print(numbSum)
 
 # %%
-
-# %%
-
+numb = input()
+print(numb[::-1])
 # %%
 
 # %%
