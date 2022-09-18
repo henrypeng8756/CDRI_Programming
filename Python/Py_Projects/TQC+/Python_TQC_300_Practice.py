@@ -20,16 +20,20 @@ for i in range(sortList[0],sortList[1]+1):
 print(sum(evenList))
     
 # %%
-i = eval(input())  # i =2
-for line in range(1,i+1): # (1,3)
-    for numb in range(1,line+1): # (1,3)
+i = eval(input())  
+for line in range(1,i+1): 
+    for numb in range(1,line+1): 
         print('%4d' %(line*numb), end ='')
     print('\n')
 
 # %%
+a = eval(input())
+numbSum = 0
+for numb in range(1,a+1):
+    if numb % 5 == 0:
+       numbSum += numb
+print(numbSum)
 
 # %%
-959/2
-
 
 # %%
