@@ -42,7 +42,7 @@ i = eval(input())
 for line in range(1,i+1): 
     for numb in range(1,line+1): 
         print('%4d' %(line*numb), end ='')
-    print('\n')
+    print()
 
 # %%
 a = eval(input())
