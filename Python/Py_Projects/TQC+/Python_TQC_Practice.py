@@ -1,5 +1,8 @@
 # %%
 # 101
+from asyncore import read
+
+
 a = eval(input())
 b = eval(input())
 c = eval(input())
@@ -129,4 +132,69 @@ for j in range(5):
 print(cardsSum)
 
 # %%
-#
+# 610
+numList = []
+for weeks in range(1,5):
+    print('Week %d:'%(weeks))
+    for days in range(1,4):
+        num = eval(input('Day %s:'%(days)))
+        numList.append(num)
+print('Average: %.2f'%(sum(numList)/12))
+print('Highest: %s'%(max(numList)))
+print('Lowest: %s'%(min(numList)))
+
+# %%
+# 704
+numList =set()
+while True:
+    i = eval(input())
+    if i != -9999:
+        numList.add(i)
+        continue
+    else:
+        print('Length: %d'%(len(numList)))
+        print('Max: %d'%(max(numList)))
+        print('Min: %d'%(min(numList)))
+        print('Sum: %d'%(sum(numList)))
+        break
+
+# %%
+# 710
+numDict = {}
+while True:
+    numKey = input('Key: ')
+    if numKey != 'end':
+        nameValue = input('Value: ')
+        numDict = (numKey,nameValue)
+        continue
+    else:
+        findKey = input('Search key: ')
+        if findKey in numDict:
+            print('True')
+        else:
+            print('False')
+        break
+
+# %%
+# 902
+#f = open("read.txt")
+with open('read.txt') as file:
+    content = file.read()
+numList = list(map(int,content.split()))
+print(sum(numList))
+
+# %%
+# 906
+f_name = input()
+str_old = input()
+str_new = input()
+#TODO
+with open(f_name,'r') as file:
+    content = file.read()
+print("=== Before the replacement")
+#TODO
+print(content)
+print("=== After the replacement")
+#TODO
+print(content.replace(str_old,str_new))
+# %%
