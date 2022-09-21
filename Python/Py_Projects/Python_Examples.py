@@ -12,6 +12,8 @@ from importlib import import_module
 from tkinter import N, Y
 from tkinter.tix import InputOnly
 
+from symbol import import_from
+
 
 print(1)
 print(1+2)
@@ -1206,4 +1208,21 @@ print(x)
 x = [1 for _ in range(1, 6)]
 print(x)
 # %%
+# %%
+import calendar
+print(calendar.month(2022,9))
+
+# %%
+import calendar as cal
+print(cal.month(2022,9))
+
+
+# %%
+from calendar import month
+print(month(2022,9))
+
+# %%
+from calendar import *
+print(month(2022,9))
+
 # %%

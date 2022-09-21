@@ -39,6 +39,7 @@ def compute():
 compute()
 
 # %%
+
 numList = []
 k = eval(input())
 for times in range(k):
@@ -47,6 +48,7 @@ print(data)
 
     
     
+
 
 
 

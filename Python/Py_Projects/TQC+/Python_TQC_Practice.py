@@ -84,8 +84,20 @@ def compute():
 compute()
 
 # %%
-# x=(-b+(b**2-(4*c*a)**0.5)/(2*a)
-# x=(-b-(b**2-(4*c*a)**0.5)/(2*a)
+# x=(-b+(b**2-(4*c*a))**0.5)/(2*a)
+# x=(-b-(b**2-(4*c*a))**0.5)/(2*a)
+def compute():
+    a = eval(input())
+    b = eval(input())
+    c = eval(input())
+    proof = b**2-4*a*c
+    if proof < 0:
+        print('Your equation has no root.')
+    elif proof == 0:
+        print('%.1f' %(-b/(2*a)))
+    else:
+        print('%.1f, %.1f' % (((-b+(b**2-(4*c*a))**0.5)/(2*a)),((-b-(b**2-(4*c*a))**0.5)/(2*a))))
+compute()
 
 # %%
 cards = []
