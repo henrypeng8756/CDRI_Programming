@@ -39,19 +39,10 @@ def compute():
 compute()
 
 # %%
-
-numList = []
 k = eval(input())
 for times in range(k):
-    data = eval(input().split(''))
-print(data) 
-
-    
-    
-
-
-
-
-
+    data = input().split(' ')
+    new_data = list(map(eval,data))
+    print('%.2f' % (max(new_data)-min(new_data)))
 
 # %%
