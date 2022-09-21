@@ -60,12 +60,10 @@ for week in range(1,5):
         i = float(input('Day %d:' %(days)))
         dayList.append(i)
 print('Average: %.2f' %(sum(dayList)/12))
-print('Highest: %s' %(max(dayList)))
-print('Lowest: %s' %(min(dayList)))
-        
+print('Highest:', max(dayList))
+print('Lowest:', min(dayList))
 
 # %%
-# FAILED TO DIFFERENTIATE KEYS
 nameDict = {}
 while True:
     key = input("Key: ")
@@ -75,7 +73,7 @@ while True:
         continue
     else:
         i = input('Search key: ')
-        if i == nameDict[key]:
+        if i in nameDict:
             print('True')
         else:
             print('False')

@@ -1,6 +1,9 @@
-x = 'Please Spell 快樂 in English:'
-answer = input(x)
-while answer.upper() != "HAPPY":
-      answer = input('Wrong! Please try again!\n%s' % x)
-else:
-      print('Correct!')
+dayList = []
+for week in range(1, 5):
+    print('Week %d:' % (week))
+    for days in range(1, 4):
+        i = float(input('Day %d:' % (days)))
+        dayList.append(i)
+print('Average:', '%.2f' %(sum(dayList)/12))
+print('Highest:', max(dayList))
+print('Lowest:', min(dayList))

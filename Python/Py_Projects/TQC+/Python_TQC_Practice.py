@@ -86,3 +86,24 @@ compute()
 # %%
 # x=(-b+(b**2-(4*c*a)**0.5)/(2*a)
 # x=(-b-(b**2-(4*c*a)**0.5)/(2*a)
+
+# %%
+cards = []
+cardsSum = 0
+for i in range(5):
+    cards.append(input())
+for j in range(5):
+    if cards[j] == 'A':
+        cardsSum += 1
+    elif cards[j] == 'J':
+        cardsSum += 11
+    elif cards[j] == 'Q':
+        cardsSum += 12
+    elif cards[j] == 'K':
+        cardsSum += 13
+    else:
+        cardsSum += eval(cards[j])
+print(cardsSum)
+
+# %%
+
