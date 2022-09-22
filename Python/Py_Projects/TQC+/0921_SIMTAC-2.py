@@ -1,4 +1,5 @@
 # %% 
+from email import contentmanager
 import math
 from time import time
 from unittest.loader import VALID_MODULE_NAME
@@ -52,16 +53,15 @@ while True:
         break
 
 # %%
-# RUN FAILED
-dayList=[]
-for week in range(1,5):
+dayList = []
+for week in range(1, 5):
     print('Week %d:' % (week))
-    for days in range(1,4):
-        i = float(input('Day %d:' %(days)))
+    for days in range(1, 4):
+        i = eval(input('Day %d:' % (days)))
         dayList.append(i)
-print('Average: %.2f' %(sum(dayList)/12))
-print('Highest:', max(dayList))
-print('Lowest:', min(dayList))
+print('Average: %.2f' % (sum(dayList)/12))
+print('Highest: %s' % (max(dayList)))
+print('Lowest: %s' % (min(dayList)))
 
 # %%
 nameDict = {}
@@ -90,12 +90,15 @@ f_name = input()
 str_old = input()
 str_new = input()
 #TODO
-open(f_name,mode='r')
 
 print("=== Before the replacement")
 #TODO
+with open(f_name, 'r') as file:
+    content = file.read()
+    print(content)
 
 print("=== After the replacement")
 #TODO
-
+content = content.replace(str_old,str_new)
+print(content)
 # %%

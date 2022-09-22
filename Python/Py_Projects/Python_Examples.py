@@ -9,6 +9,7 @@ This is a temporary script file.
 from cmath import pi
 from email.contentmanager import raw_data_manager
 from importlib import import_module
+from re import M
 from tkinter import N, Y
 from tkinter.tix import InputOnly
 
@@ -1224,5 +1225,24 @@ print(month(2022,9))
 # %%
 from calendar import *
 print(month(2022,9))
+
+# %%
+import csv
+loc = 'Output/csv_test.csv'
+with open(loc,encoding='utf8') as csvFile:
+      csvReader = csv.reader(csvFile)
+      listReport = list(csvReader)
+print(listReport)
+
+# %%
+data=['1','2',3.545]
+convtintData = map(int,data)
+print(convtintData)
+
+# %%
+data = ['1', '2', 3.545]
+data = list(data)
+convtlistData = list(map(int, data))
+print(convtlistData)
 
 # %%
