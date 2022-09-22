@@ -8,6 +8,7 @@ This is a temporary script file.
 
 from cmath import pi
 from email.contentmanager import raw_data_manager
+from encodings import utf_8_sig
 from importlib import import_module
 from re import M
 from tkinter import N, Y
@@ -1244,5 +1245,62 @@ data = ['1', '2', 3.545]
 data = list(data)
 convtlistData = list(map(int, data))
 print(convtlistData)
+
+# %%
+import csv
+i = 'Output/Scenic_Spot_C_f.csv'
+with open(i) as file:
+      content = csv.reader(file)
+      convrtList = list(content)
+print(convrtList)
+
+# %%
+import csv
+i = 'Output/Scenic_Spot_C_f.csv'
+with open(i) as file:
+      content = csv.reader(file)
+      convrtList = list(content)
+print(convrtList[:8])
+
+# %%
+i = 'Output/Scenic_Spot_C_f.csv'
+with open(i) as file:
+    content = csv.reader(file)
+    convrtList = list(content)
+print(convrtList[13])
+
+# %%
+i = 'Output/Scenic_Spot_C_f.csv'
+with open(i) as file:
+    content = csv.reader(file)
+    convrtList = list(content)
+print(list(convrtList))
+print(max(convrtList))
+
+# %%
+import csv
+fn = 'Output/csvoutput.csv'
+with open(fn,'w',newline='',encoding='utf_8_sig') as csvFile:
+      csvWriter = csv.writer(csvFile)
+      csvWriter.writerow(['姓名','電話','ID','費用','是否前往'])
+      csvWriter.writerow(['李小明','(886)9739238434','C123218934',100,True])
+      csvWriter.writerow(['李大強','(886)9328458723','C678342345',200,False])
+with open(fn,'r') as csvFile:      
+      csvReader = csv.reader(csvFile)
+      csvList = list(csvReader)
+      print(csvList)
+
+# %%
+import csv
+infn = 'Output/csvoutput.csv'
+outfn = 'Output/csvOReport.csv'
+with open(infn,encoding='utf_8_sig') as csvRFile:
+      csvReader = csv.reader(csvRFile)
+      listReport = list(csvReader)
+
+with open(outfn,'w',newline='',encoding='utf_8_sig') as csvOFile:
+      csvWriter = csv.writer(csvOFile)
+      for row in listReport:
+            csvWriter.writerow(row)
 
 # %%
