@@ -1304,3 +1304,25 @@ with open(outfn,'w',newline='',encoding='utf_8_sig') as csvOFile:
             csvWriter.writerow(row)
 
 # %%
+import xml.etree.ElementTree as et
+tree = et.ElementTree(file='Samples/menu.xml')
+menu = tree.getroot()
+print(menu.tag)
+for breakfast in menu:
+      print(f'tag: {breakfast.tag} attributes: {breakfast.attrib}')
+      for item in breakfast:
+            print(f'\ttag: {item.tag} attributes {item.attrib}')
+print(len(menu))
+print(len(menu[0]))
+
+# %%
+import xml.etree.ElementTree as et
+tree = et.ElementTree(file='Samples/country_data.xml')
+root = tree.getroot()
+for country in root.findall('country'):
+      rank = int(country.find("rank").text)
+      if rank > 50:
+            root.remove(country)
+tree.write("Output/xmloutput.xml", encoding='utf_8')
+
+# %%
