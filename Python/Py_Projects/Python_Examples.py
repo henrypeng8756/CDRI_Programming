@@ -1326,3 +1326,31 @@ for country in root.findall('country'):
 tree.write("Output/xmloutput.xml", encoding='utf_8')
 
 # %%
+import json
+fn = 'Output/jsonObject.json'
+with open(fn) as fnObj:
+      data = json.load(fnObj)
+print(data)
+print(type(data))
+
+# %%
+fn = 'Output/jsonArray.json'
+with open(fn) as fnArry:
+      data = json.load(fnArry)
+print(data)
+print(type(data))
+
+# %%
+import json
+dictobject = {'x':60, 'y':55, 'z':90}
+fn= 'Output/pytojsonObject.json'
+with open(fn, 'w') as fnObj:
+      json.dump(dictobject, fnObj)
+
+# %%
+listarray = [{'x':"一二三", 'y':55, 'z':90},{'a':10, 'b':25, 'c':30}]
+fn= 'Output/pytojsonArray.json'
+with open(fn,'w') as fnArry:
+      json.dump(listarray,fnArry,ensure_ascii=False)
+
+# %%
