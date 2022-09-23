@@ -1354,3 +1354,11 @@ with open(fn,'w') as fnArry:
       json.dump(listarray,fnArry,ensure_ascii=False)
 
 # %%
+import json
+fn = 'Samples/jobasEdu.json'
+with open(fn,encoding='utf8') as jsonFile:
+      jsonContent=json.load(jsonFile)
+      for item in jsonContent:
+            print([item['年度'],item['大職業別'],item['經常性薪資-薪資']])
+
+# %%
