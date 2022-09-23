@@ -1,1 +1,1 @@
-# TODOk = eval(input())for times in range(k):    num_str = input()    num = list(map(eval,num_str.split(' ')))    print('%.2f'%(max(num)-min(num)))    
+# TODOnumList = []k = eval(input())for times in range(k):    numList = list(map(eval,(input().split(' '))))    print('%.2f'%(max(numList)-min(numList)))    
