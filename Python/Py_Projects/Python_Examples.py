@@ -8,11 +8,12 @@ This is a temporary script file.
 
 from cmath import pi
 from email.contentmanager import raw_data_manager
-from encodings import utf_8_sig
+from encodings import utf_8, utf_8_sig
 from importlib import import_module
 from re import M
 from tkinter import N, Y
 from tkinter.tix import InputOnly
+from urllib import response
 
 from symbol import import_from
 
@@ -1360,5 +1361,49 @@ with open(fn,encoding='utf8') as jsonFile:
       jsonContent=json.load(jsonFile)
       for item in jsonContent:
             print([item['年度'],item['大職業別'],item['經常性薪資-薪資']])
+
+# %%
+import urllib.request
+res = urllib.request.urlopen('http://python.org')
+content=res.read()
+print(content)
+
+# %%
+res = urllib.request.urlopen('https://google.com.tw')
+content = res.read()
+print(content)
+
+# %%
+import requests
+website = 'https://bit.ly/2OU9LQb'
+#website = 'https://reurl.cc/xQbq6z'
+response = requests.get(website)
+print(response.status_code)
+record = response.headers
+print(record)
+data = response.json()
+print(data['success'])
+print(data['result'])
+
+# %%
+import requests
+url = 'https://data.gov.tw/'
+html_body = requests.get(url)
+html_body.encoding='utf_8'
+print(html_body.text)
+
+# %%
+data = '''<html><head><title>The Dormouse's story</title></head> <body> <p class="title"><b>The Dormouse's story</b></p> <p class="story">Once upon a time there were three little sisters; and their names were <a href="http://example.com/elsie" class="sister" id="link1">Elsie</a>, <a href="http://example.com/lacie" class="sister" id="link2">Lacie</a> and <a href="http://example.com/tillie" class="sister" id="link3">Tillie</a>; and they lived at the bottom of a well.</p> <p class="story">...</p>
+
+'''
+from bs4 import BeautifulSoup as bs
+soup = bs(data,'lxml')
+print(soup)
+print(type(soup))
+# print(data.prettify()) # wrong 
+print(soup.prettify())
+print(soup.b.prettify())
+print(soup.p.text)
+print(soup.title.string)
 
 # %%
