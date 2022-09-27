@@ -1460,3 +1460,132 @@ print('9:',data[1].text)
 print('10:',bs.select("#link3")) # due to CSS | #link3 == id='link3' | # == id= |
 
 # %%
+import time
+import numpy as np
+def calculatetime():
+      a = np.random.rand(1000000)
+      b = list(a)
+      start_time = time.time()
+      for _ in range(100):
+            sum1 = np.sum(a)
+      print('Using NumPy\t %f sec' %(time.time()-start_time))
+      
+      start_time = time.time()
+      for _ in range(100):
+            sum2 = sum(b)
+      print('Not using NumPy\t %f sec' %(time.time()-start_time))
+calculatetime()
+
+# %%
+import numpy as np
+X = np.array(([1,2,3],[4,5,6]))
+Y = np.array([(1,2,3),(4,5,6)])
+print(type(X))
+print(type(Y))
+print(X)
+print(Y)
+
+# %%
+import numpy as np
+data1 = [1,2,3,4,5]
+array1 = np.array(data1)
+print(array1)
+
+# %%
+import numpy as np
+data2 = [[1,2,3,4,5],[6,7,8,9,10]]
+array2 = np.array(data2)
+print(array2)
+
+# %%
+import numpy as np
+data = [1,2,3,4,5]
+array1 = np.array(data)
+array2 = np.array(data, dtype=float)
+array3 = np.array(data, dtype=bool)
+print(type(array1))
+print(array1)
+print(type(array2))
+print(array2)
+print(type(array3))
+print(array3)
+
+# %%
+import numpy as np
+print(np.zeros((3,5)))
+print()
+print(np.ones((3,2)))
+print()
+print(np.arange(3,20,2))
+print()
+print(np.linspace(0,100,21))
+
+# %%
+import numpy as np
+a = np.array([[3,6,9],[2,4,6]])
+print(a)
+print('T\n',a.T,'\n')
+print('ndim:', a.ndim)
+print('shape:',a.shape)
+print('type:',type(a))
+print('dtype:',a.dtype)
+print('data:',a.data)
+print('size:',a.size)
+print('itemsize',a.itemsize)
+print('nbytes',a.nbytes)
+
+# %%
+import numpy as np
+x = np.random.randn(5,4)
+print(x)
+print()
+print(type(x))
+print()
+print(x.mean())
+print()
+print(x.sum())
+print()
+print(x.min())
+print()
+print(x.max())
+print()
+x = np.array([[2,3,4],[5,6,7]])
+print(x.cumsum)
+print()
+print(x.cumsum())
+print()
+print(np.std(x))
+
+# %%
+a = [i for i in range(1,6)]
+b = [j for j in range(6,12)]
+x = [a,b]
+print(type(x))
+print(x)
+y = x[1][1:]
+print(type(y))
+print(y)
+
+y[1]=200
+print(type(y))
+print(y)
+print(type(x))
+print(x)
+
+
+# %%
+import numpy as np
+x = np.arange(12).reshape(2,6)
+print(type(x))
+print(x)
+y = x[1][1:]
+print(type(y))
+print(y)
+
+y[1]=200
+print(type(y))
+print(y)
+print(type(x))
+print(x)
+
+# %%
