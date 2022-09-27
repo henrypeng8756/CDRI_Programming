@@ -17,3 +17,4 @@ Max: _
 Min: _
 Sum: _
 """
+import numpy as np

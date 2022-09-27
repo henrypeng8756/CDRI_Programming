@@ -1589,3 +1589,40 @@ print(type(x))
 print(x)
 
 # %%
+import numpy as np
+rowList = []
+for row in range(6):
+      rowList.append(np.array(row))
+      for column in range(0,51,10):
+            rowList.append(np.array(row+column))
+print(rowList)
+
+# %%
+import numpy as np
+x = np.arange(12).reshape(3,4)
+print(x)
+y = x[[0,1,2],[2,1,0]]
+print(y)
+
+# %%
+import numpy as np 
+x = np.arange(12).reshape(3,4)
+print(x)
+z = x[np.ix_([0,2],[1,3])]
+print(z)
+
+# %%
+import numpy as np
+arr = np.arange(10)
+print(arr)
+slice = arr[5:8]
+print(slice)
+print(arr)
+arr[5:8]=7
+print(slice)
+print(arr)
+slice[1]=87
+print(slice)
+print(arr)
+
+# %%
