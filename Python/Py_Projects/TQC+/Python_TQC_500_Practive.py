@@ -64,11 +64,11 @@ compute()
 # %%
 def compute():
     x = eval(input())
-    for num in range()
-    if x % x == 0:
-        print('Prime')
-    else:
-        print('Not Prime')
+    for num in range():
+        if x % x == 0:
+            print('Prime')
+        else:
+            print('Not Prime')
 compute()
 
 # %%
