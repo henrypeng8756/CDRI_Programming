@@ -1255,6 +1255,10 @@ with open(i) as file:
       convrtList = list(content)
 print(convrtList)
 
+with open(i) as file:
+    data = list(csv.reader(file))
+print(data)
+
 # %%
 import csv
 i = 'Output/Scenic_Spot_C_f.csv'
@@ -1277,6 +1281,10 @@ with open(i) as file:
     convrtList = list(content)
 print(list(convrtList))
 print(max(convrtList))
+
+with open(i) as file:
+    data = list(csv.reader(file))
+print(data)
 
 # %%
 import csv
