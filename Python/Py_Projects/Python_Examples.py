@@ -14,6 +14,7 @@ from re import M
 from tkinter import N, Y
 from tkinter.tix import InputOnly
 from urllib import response
+from xml.dom import registerDOMImplementation
 
 from symbol import import_from
 
@@ -1633,4 +1634,171 @@ slice[1]=87
 print(slice)
 print(arr)
 
+# %%
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.arange(1,11)
+y = x**2
+plt.plot(x,y)
+plt.show()
+
+# %%
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.linspace(0, 2*np.pi, 500)
+y1 = np.sin(x)
+y2 = np.cos(x)
+plt.plot(x,y1,linewidth =3)
+plt.plot(x,y2,lw = 8)
+plt.show()
+
+# %%
+x = np.linspace(0, 2*np.pi, 500)
+y1 = np.sin(x)
+y2 = np.cos(x)
+plt.plot(x, y1, linewidth=3, color="c")
+plt.plot(x, y2, lw=8, color="y")
+plt.show()
+
+# %%
+x = np.linspace(0, 2*np.pi, 500)
+y1 = np.sin(x)
+y2 = np.cos(x)
+plt.plot(x, y1, linewidth=8, color="#00ffff")
+plt.plot(x, y2, lw=8, color=(255/255,0/255,0/255))
+plt.show()
+
+# %%
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.arange(0,5,0.1)
+plt.plot(x,x,"b--",x,x**2,"ro",x,x**3,"g+")
+plt.show()
+
+# %%
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.arange(1,10)
+plt.plot(x,x, "--", marker="x")
+plt.plot(x,x**2, "--", marker="o")
+plt.plot(x,x**3, "--", marker="^" )
+plt.show()
+
+# %%
+import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
+import numpy as np
+plt.rcParams["font.family"] = "PingFang TC"
+plt.rcParams["font.size"] = 20
+plt.rcParams['axes.unicode_minus'] = False
+
+font_path = '/System/Library/Fonts/PingFang.ttc'
+font_prop = fm.FontProperties(fname=font_path)
+
+x = np.arange(1,11)
+y = x**2
+plt.plot(x,y,"--",marker="^")
+plt.title("折線圖")
+plt.xlabel("X 軸座標圖", size=10)
+plt.ylabel("Y 軸", size=15, rotation=0)
+plt.show()
+
+# %%
+# cd /usr/local/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf
+# fc-list :lang=zh
+import matplotlib
+matplotlib.matplotlib_fname()
+
+# %%
+import matplotlib.font_manager
+ 
+a = sorted([f.name for f in matplotlib.font_manager.fontManager.ttflist])
+ 
+for i in a:
+    print(i)
+
+# %%
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.arange(1,10)
+plt.plot(x,x**3,"--",marker="^")
+plt.axis([0,20,0,100])
+plt.show()
+
+# %%
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.arange(1,10)
+plt.plot(x,x*5,"--",marker="o")
+plt.xlim(-10,10)
+plt.ylim(0,80)
+plt.show()
+
+# %%
+import matplotlib.pyplot as plt
+import numpy as np
+
+data = {"2010年":[3512,5241,1254],"2011年":[4000,4514,3590],"2012年":[5120,4120,5350]}
+x = [1,2,3]
+y1, y2, y3 = data["2010年"],data['2011年'],data['2012年']
+labels =['Year 2010','Year 2011','Year 2012']
+plt.xticks(x,labels)
+plt.plot(x,y1,"g",x,y2,"r",x,y3,"b")
+plt.show()
+
+# %%
+import matplotlib.pyplot as plt
+import numpy as np
+
+data = {"2010年":[3512,5241,1254],"2011年":[4000,4514,3590],"2012年":[5120,4120,5350]}
+x = [1,2,3]
+y1, y2, y3 = data["2010年"],data['2011年'],data['2012年']
+labels =['Year 2010','Year 2011','Year 2012']
+plt.xticks(x,labels)
+plt.figure(figsize=(6,8), facecolor='#D1BBFF')
+plt.plot(x,y1,"g",label='Product_A')
+plt.plot(x,y2,"r",label='Product_A')
+plt.plot(x,y3,"b",label='Product_A')
+plt.legend(loc=5)
+plt.grid()
+plt.show()
+
+# %%
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.linspace(0,2*np.pi,500)
+y1 = np.sin(x)
+y2 = np.cos(x)
+plt.plot(x,y1,label="sin")
+plt.plot(x,y2,label="cos")
+plt.legend()
+plt.grid()
+plt.show()
+
+# %%
+x = np.linspace(0, 2*np.pi, 500)
+y1 = np.sin(x)
+y2 = np.cos(x)
+plt.figure(figsize=(6,8), facecolor='#D1BBFF')
+plt.plot(x, y1, label="sin")
+plt.plot(x, y2, label="cos")
+plt.legend()
+plt.grid()
+plt.show()
+
+# %%
+import matplotlib.pyplot as plt 
+
+y1 = x = [i for i in range(1,9)]
+y2 = [i**2 for i in range(1,9)]
+
+plt.figure(1)
+plt.plot(x,y1,"r-*")
+plt.plot("chatr 1")
+plt.show()
+
+plt.figure(2)
+plt.plot(x,y2,"b-+")
+plt.plot("chatr 2")
+plt.show()
 # %%
