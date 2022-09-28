@@ -13,6 +13,7 @@ from importlib import import_module
 from re import M
 from tkinter import N, Y
 from tkinter.tix import InputOnly
+from turtle import left
 from urllib import response
 from xml.dom import registerDOMImplementation
 
@@ -1688,7 +1689,7 @@ plt.show()
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 import numpy as np
-plt.rcParams["font.family"] = "PingFang"
+plt.rcParams["font.family"] = "PingFang TC"
 plt.rcParams["font.size"] = 20
 plt.rcParams['axes.unicode_minus'] = False
 
@@ -1704,8 +1705,18 @@ plt.ylabel("Y 軸", size=15, rotation=0)
 plt.show()
 
 # %%
+# cd /usr/local/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf
+# fc-list :lang=zh
 import matplotlib
 matplotlib.matplotlib_fname()
+
+# %%
+import matplotlib.font_manager
+ 
+a = sorted([f.name for f in matplotlib.font_manager.fontManager.ttflist])
+ 
+for i in a:
+    print(i)
 
 # %%
 import matplotlib.pyplot as plt
@@ -1791,4 +1802,25 @@ plt.figure(2)
 plt.plot(x,y2,"b-+")
 plt.plot("chatr 2")
 plt.show()
+
+# %%
+import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
+import numpy as np
+plt.rcParams['font.family'] = 'PingFang TC'
+plt.rcParams['font.size'] = 20
+font_path = '/System/Library/Fonts/PingFang.ttc'
+fm.FontProperties(fname=font_path)
+x = np.arange(1, 10)
+plt.plot(x, x, "--", marker="x", label='一次方')
+plt.plot(x, x**2, "--", marker="o", label='二次方')
+plt.plot(x, x**3, "--", marker="^", label='三次方')
+plt.title("折線圖", loc='left', color='#4621c2', fontstyle='normal')
+plt.xlabel("X軸座標")
+plt.ylabel("Y軸座標",rotation=90)
+plt.axis([0,10,0,800])
+plt.legend()
+plt.grid()
+plt.show()
+
 # %%
