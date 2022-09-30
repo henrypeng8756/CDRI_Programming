@@ -1824,3 +1824,147 @@ plt.grid()
 plt.show()
 
 # %%
+import matplotlib.pyplot as plt
+plt.figure()
+plt.subplot(2,2,1, facecolor="g")
+plt.subplot(2,2,2, facecolor='r')
+plt.subplot(2,1,2)
+plt.show()
+
+# %%
+import matplotlib.pyplot as plt
+plt.figure()
+plt.subplot(2,1,1)
+plt.subplot(2,2,3,facecolor='g')
+plt.subplot(2,2,4,facecolor="r")
+plt.show()
+
+# %%
+import matplotlib.pyplot as plt
+x = [x for x in range(5)]
+y = [y**2 for y in range(11,21)]
+z = [z for z in range(10,0,-1)]
+plt.figure()
+plt.subplot(2,2,1, facecolor='#C4DDB1')
+plt.plot(x)
+plt.subplot(2,2,2,facecolor='#E6A8E6')
+plt.plot(y)
+plt.subplot(2,1,2,facecolor='#F3F599')
+plt.plot(z)
+plt.show()
+
+# %%
+import matplotlib.pyplot as plt
+plt.figure()
+plt.subplot2grid(shape=(3,3),loc=(0,0),rowspan=1,colspan=3,facecolor='r')
+plt.subplot2grid(shape=(3,3),loc=(1,0),rowspan=1,colspan=2,facecolor='b')
+plt.subplot2grid((3,3),(1,2),2,1,facecolor='g')
+plt.subplot2grid((3,3),(2,0),facecolor='y')
+plt.subplot2grid((3,3),(2,1),facecolor='w')
+plt.show()
+
+# %%
+import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
+import numpy as np
+x = np.arange(1,10)
+plt.plot(x,x**3,'--',marker='^')
+plt.savefig("Output/123.jpg")
+plt.show()
+
+# %%
+import matplotlib.pyplot as plt
+name = ['Java', 'C++', 'Python', 'JavaScript', 'Objective-C']
+student = [101, 87, 98, 67, 80]
+plt.figure(1)
+plt.bar(name, student, align='edge', color='#D55772')
+plt.figure(2)
+plt.bar(name,student)
+plt.figure(3)
+plt.bar(name, student, align='edge', color='#D55772')
+plt.bar(name, student)
+plt.show()
+
+# %%
+import matplotlib.pyplot as plt
+name = ["Java", 'C++', 'Python', 'JavaScript', 'Objective-C']
+student = [101, 87, 98, 67, 80]
+plt.bar(name, student, width=1.0)
+plt.show()
+
+# %%
+import matplotlib.pyplot as plt
+name = ["Java", 'C++', 'Python', 'JavaScript', 'Objective-C']
+student = [101, 87, 98, 67, 80]
+plt.bar(name, student, hatch='o', color='#FFCC00')
+plt.show()
+
+# MATPLOTLIB 
+
+# %%
+import pandas as pd
+ss = pd.Series([1,-3,5,7])
+print(ss)
+print('- - - - -')
+print('- - - - -')
+print(ss.values)
+print(ss.index)
+
+# %%
+import pandas as pd
+ss1 = pd.Series([4,7,-5,3], index=['a','b','c','d'])
+print(ss1.index)
+print(ss1['a'])
+print('a' in ss1)
+print( 7 in ss1)
+print(7 in ss1.values)
+
+# %%
+import pandas as pd
+list_ex = ["A",123,"B",4.56,"C",True]
+list_to_Series=pd.Series(list_ex)
+print(list_to_Series)
+print('-'*10)
+print(type(list_to_Series[0]))
+print(type(list_to_Series[1]))
+print(type(list_to_Series[2]))
+print(type(list_to_Series[3]))
+print(type(list_to_Series[4]))
+print(type(list_to_Series[5]))
+print('-'*10)
+
+dic_ex={"A":123,"B":4.56,"C":True}
+dic_to_Series=pd.Series(dic_ex)
+print(dic_to_Series)
+print('-'*10)
+print(type(dic_to_Series["A"]))
+print(type(dic_to_Series["B"]))
+print(type(dic_to_Series["C"]))
+
+# %%
+import pandas as pd
+X = [['Amy','F',80],['Bob','M',65],['Dave','M',46],['Eva','F',46]]
+df1 = pd.DataFrame(X,columns=['Name','Gender','Mathgrade'])
+print("-----顯示資料一--索引方式-----")
+print(df1['Name'])
+print(df1['Name'].values)
+print(df1['Name'][1])
+#print(df1['Name'][1].value)
+
+# %%
+import pandas as pd
+df = pd.read_csv('Samples/csvsample.csv')
+print(df.ndim)
+print('---')
+print(df.shape)
+print('---')
+print(df.dtypes)
+print('---')
+print(df.head(6))
+print('---')
+print(df.tail(6))
+print('---')
+print(df.info())
+print('---')
+
+# %%
