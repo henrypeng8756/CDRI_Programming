@@ -1,3 +1,18 @@
 {
-    "notebook.output.textLineLimit": 100
+    "notebook.output.textLineLimit": 100,
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "192.9.238.252",
+            "port": 3306,
+            "driver": "MariaDB",
+            "name": "MariaDB",
+            "database": "henrydb_1",
+            "username": "henry",
+            "password": "elaine201314"
+        }
+    ]
 }

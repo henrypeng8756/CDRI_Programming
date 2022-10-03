@@ -2262,3 +2262,54 @@ df2.plot(kind='bar', fontsize=12,)
 df2.plot(kind='bar', fontsize=12, stacked=True)
 
 # %%
+import sqlite3
+con = sqlite3.connect('Output/test.sql')
+sqlstr = 'CREATE TABLE IF NOT EXISTS table01 \
+      ("num" INTEGER PRIMARY KEY NOT NULL, "tel" TEXT)'
+con.execute(sqlstr)
+sqlstr = 'INSERT INTO table01 VALUES(1, "02-1234567")'
+con.execute(sqlstr)
+sqlstr = '''INSERT INTO table01(num, tel)\
+      VALUES(2,"03-2345678"),(3, "04-3456789")'''
+con.execute(sqlstr)
+con.commit()
+con.close()
+
+# %%
+import mariadb
+#conn_params={
+#      'user': 'pytest',
+#      'password': '1qazXSW@',
+#      'host': '192.9.238.252',
+#      'database': 'pytest'
+#}
+
+con = mariadb.connect(
+      user= 'henry',
+      host= '192.9.238.252',
+      password= 'elaine201314',
+      database= 'henrydb_1'
+)
+mariadb.connect()
+cursor= con.cursor()
+
+sqlCreateTable = 'CREATE TABLE IF NOT EXISTS Countries \
+      ("Name" TEXT, "Country_Code" TEXT, "Capital" TEXT)'
+cursor.execute(sqlCreateTable)
+
+sqlInsertData = 'INSERT INTO Countries(Name, Country_Code, Capital) \
+      VALUES(?, ?, ?), ("Taiwan", "TWN", "Taipei")'
+cursor.execute(sqlInsertData)
+
+sqlSelectData = 'SELECT "Name", "Country_Code","Capital" FROM Countries'
+cursor.execute(sqlSelectData)
+
+row = cursor.fetchone()
+print(row,sep=' ')
+
+cursor.close()
+con.close()
+
+
+
+# %%
