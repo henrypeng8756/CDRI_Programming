@@ -1559,6 +1559,10 @@ print(x.min())
 print()
 print(x.max())
 print()
+print(x.std())
+print()
+print(x.ptp())
+print()
 x = np.array([[2,3,4],[5,6,7]])
 print(x.cumsum)
 print()
@@ -2190,5 +2194,71 @@ print()
 print(frame.iloc[0:2,0:2])
 print()
 print(frame.iloc[[0,2],[0,2]])
+
+# %%
+import pandas as pd
+df = pd.read_csv('Samples/nba.csv')
+df.to_csv('Output/nba_2.csv')
+df.to_csv('Output/nba_3.csv',index=0)
+df.to_csv('Output/nba_4.csv',index=False, header=0)
+
+# %%
+import pandas as pd
+df = pd.read_csv('Samples/nba.csv')
+df.to_csv("Output/nba2.csv")
+df0 = pd.read_csv('Output/nba2.csv')
+print(df0.head(6))
+df1 = pd.read_csv('Output/nba2.csv', index_col=0)
+print(df1.head(6))
+df2 = pd.read_csv('Output/nba2.csv', index_col=False, header=None)
+print(df2.head(6))
+
+# %%
+import numpy as np
+import pandas as pd
+x1 = np.random.rand(100,1)
+y1 = np.random.randn(100,1)
+x2 = np.random.rand(100,4)
+y2 = np.random.randn(100,4)
+df1 = pd.DataFrame(x1,index=pd.date_range('3/1/22', periods=100),\
+      columns=list('A'))
+df2 = pd.DataFrame(y1,index=pd.date_range('3/1/22', periods=100),\
+      columns=list('A'))
+df3 = pd.DataFrame(x2,index=pd.date_range('3/1/22', periods=100),\
+      columns=list('ABCD'))
+df4 = pd.DataFrame(y2,index=pd.date_range('3/1/22', periods=100),\
+      columns=list('ABCD'))
+df1.plot()
+df2.plot()
+df3.plot()
+df4.plot()
+
+df1 = df1.cumsum()
+df2 = df2.cumsum()
+df3 = df3.cumsum()
+df4 = df4.cumsum()
+df1.plot()
+df2.plot()
+df3.plot()
+df4.plot()
+
+# %%
+import numpy as np
+import pandas as pd
+x1 = np.random.randn(10000,1)
+df1 = pd.DataFrame(x1,index=pd.date_range('3/1/22', periods=10000),\
+      columns=list('A'))
+df1.plot()
+
+# %%
+import numpy as np
+import pandas as pd
+df = pd.DataFrame(np.random.randn(500,3), columns=list('xyz'),\
+      index= pd.date_range('1/1/2022', periods=500))
+df = df.cumsum()
+df.plot(colormap='gray').set_ylabel('Value', fontsize=12)
+df2 = pd.DataFrame(np.random.rand(5,3), columns=['a','b','c'])
+df2.plot(kind='bar', fontsize=12,)
+df2.plot(kind='bar', fontsize=12, stacked=True)
 
 # %%
