@@ -1899,7 +1899,91 @@ student = [101, 87, 98, 67, 80]
 plt.bar(name, student, hatch='o', color='#FFCC00')
 plt.show()
 
-# MATPLOTLIB 
+# %%
+import matplotlib.pyplot as plt
+name = ["Java", 'C++', 'Python', 'JavaScript', 'Objective-C']
+student = [101, 87, 98, 67, 80]
+plt.barh(name,student)
+plt.show()
+
+# %%
+import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
+plt.rcParams['font.family'] = ['PingFang TC']
+font_path = '/System/Library/Fonts/PingFang.ttc'
+fm.FontProperties(fname=font_path)
+area = ['大陸','東南亞','東北亞','美國','歐洲','澳紐']
+people = [10000,12600,9600,7500,5100,4800]
+plt.pie(people,labels=area)
+plt.title('五月份國外旅遊調查表',fontsize=16)
+plt.show()
+
+# %%
+import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
+plt.rcParams['font.family'] = ['PingFang TC']
+font_path = '/System/Library/Fonts/PingFang.ttc'
+fm.FontProperties(fname=font_path)
+area = ['大陸','東南亞','東北亞','美國','歐洲','澳紐']
+people = [10000,12600,9600,7500,5100,4800]
+plt.pie(people, labels=area, autopct='%d%%')
+plt.title('五月份國外旅遊調查表',fontsize=16)
+plt.show()
+
+# %%
+import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
+plt.rcParams['font.family'] = ['PingFang TC']
+font_path = '/System/Library/Fonts/PingFang.ttc'
+fm.FontProperties(fname=font_path)
+area = ['大陸','東南亞','東北亞','美國','歐洲','澳紐']
+people = [10000,12600,9600,7500,5100,4800]
+exp = [0.0, 0.0, 0.0, 0.0, 0.0, 0.1]
+plt.pie(people, labels=area, autopct='%d%%', explode=exp)
+plt.title('五月份國外旅遊調查表',fontsize=16)
+plt.show()
+
+# %%
+import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
+plt.rcParams['font.family'] = ['PingFang TC']
+font_path = '/System/Library/Fonts/PingFang.ttc'
+fm.FontProperties(fname=font_path)
+area = ['大陸','東南亞','東北亞','美國','歐洲','澳紐']
+people = [10000,12600,9600,7500,5100,4800]
+exp = [0.0, 0.0, 0.0, 0.0, 0.0, 0.3]
+plt.pie(people, labels=area, autopct='%d%%', explode=exp, shadow=True)
+plt.title('五月份國外旅遊調查表',fontsize=16)
+plt.show()
+
+# %%
+import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
+plt.rcParams['font.family'] = ['PingFang TC']
+font_path = '/System/Library/Fonts/PingFang.ttc'
+fm.FontProperties(fname=font_path)
+area = ['大陸','東南亞','東北亞','美國','歐洲','澳紐']
+people = [10000,12600,9600,7500,5100,4800]
+color = ['aqua','g','pink','yellow','m','#0022ff']
+plt.pie(people,labels=area, autopct='%d%%', colors=color)
+plt.title('五月份國外旅遊調查表',fontsize=16)
+plt.show()
+
+# %%
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.arange(1,21)
+y = np.random.randint(1,10,20)
+plt.scatter(x,y)
+plt.show()
+
+# %%
+import matplotlib.pyplot as plt
+import numpy as np
+x = color = np.arange(1,21)
+y = np.random.randint(1,10,20)
+plt.scatter(x,y, c=color, s=100)
+plt.show()
 
 # %%
 import pandas as pd
@@ -1966,5 +2050,145 @@ print(df.tail(6))
 print('---')
 print(df.info())
 print('---')
+
+# %%
+import pandas as pd
+df = pd.read_csv('Samples/nba.csv')
+print(df['Name'])
+print(df['Name'][0:6])
+print(df[['Name','Team']].head(10))
+
+# %%
+import pandas as pd
+df = pd.read_csv('Samples/nba.csv')
+df.insert(1,column='Sport',value='Checked')
+print(df.head())
+# df = df.drop('Sport',axis = 1)
+df.drop('Sport',axis = 1, inplace=True)
+print(df.head())
+print('---')
+df = df.drop(0,axis = 0)
+print(df.head())
+
+# %%
+import pandas as pd
+df = pd.read_csv('Samples/nba.csv')
+df.insert(1,column='Sport',value='Checked')
+print(df.head())
+df.dropna(inplace=True)
+print(df.head())
+
+# %%
+import pandas as pd
+df = pd.read_csv('Samples/nba.csv')
+df.insert(1,column='Sport',value='Checked')
+print(df.head())
+df.fillna(10000,inplace=True)
+print(df.head())
+
+# %%
+import pandas as pd
+df = pd.read_csv('Samples/nba.csv')
+print(df.head(6))
+print(df.sort_values('Age').head(6))
+print(df.sort_values('Name',ascending=False).head(6))
+
+# %%
+import pandas as pd
+pd.set_option('display.max_columns', None)
+pd.set_option('display.max_rows',None)
+df = pd.read_csv('Samples/nba.csv')
+print(df['Age'].head(10) >= 25)
+mask = (df['Age'] >= 25)
+print(df[mask].head(8))
+mask1 = df['Age'] < 29
+print(df[mask1 & mask].head(8))
+# print(df[mask][mask1].head(8))
+# UserWarning: Boolean Series key will be reindexed to match DataFrame index.
+mask2 = (df['Age'].between(20,28))
+print(df[mask2].head(8))
+mask3 = df['Age'].isin([25,28,32])
+print(df[mask3].head(8))
+
+# %%
+import pandas as pd
+col = ['Class','Name','Bday']
+data = [['ClassA','小明','1995-08-01'],
+['ClassB','小美','1995-10-02'],
+['ClassC','小黃','1995-06-01'],
+['ClassC','小陳','1993-11-03'],
+['ClassA','小花','1996-01-02'],
+['ClassB','小雨','1996-02-03']]
+frame = pd.DataFrame(data,columns=col)
+frame_class = frame.groupby('Class')
+print(frame_class.groups)
+print(frame_class.get_group('ClassA'))
+
+# %%
+import numpy as np
+import pandas as pd
+df = pd.DataFrame({
+      'A': ['foo','bar','foo','bar','foo','bar','foo','foo'],
+      'B': ['one','one','two','three','two','two','one','three'],
+      'C': np.random.randn(8),
+      'D': np.random.randn(8)
+})
+print(df)
+print(df.groupby('A').sum())
+# FutureWarning: The default value of numeric_only in DataFrameGroupBy.sum is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
+print(df.groupby(['B','A']).sum())
+
+# %%
+import numpy as np 
+import pandas as pd
+df = pd.DataFrame({
+      'key1':['A','B','A','C','B','D','C','D','A','C'],
+      'data1': np.random.randn(10),
+      'data2': np.random.randn(10)
+})
+print(df)
+print()
+sector = df.groupby('key1')
+print(sector)
+print()
+print(type(sector))
+print()
+print(sector.size())
+print(sector.get_group('A'))
+print(sector.get_group('B'))
+
+# %%
+import pandas as pd
+import numpy as np
+df = pd.DataFrame(np.random.rand(5,3),\
+      index=list('ABCDE'),columns=list('XYZ'))
+print(df)
+print()
+print(df.loc['A','X'])
+print()
+print(df.loc['B':'D',:])
+print()
+print(df.loc[:,'X':'Y'])
+print()
+print(df.loc['A':'C','X':'Y'])
+print()
+print(df.loc[['B','E'],['X','Z']])
+
+# %%
+import pandas as pd
+import numpy as np
+frame = pd.DataFrame(np.random.rand(3,3),\
+      index=list('xyz'),columns=list('XYZ'))
+print(frame)
+print()
+print(frame.iloc[0,0])
+print()
+print(frame.iloc[0:2,:])
+print()
+print(frame.iloc[:,0:2])
+print()
+print(frame.iloc[0:2,0:2])
+print()
+print(frame.iloc[[0,2],[0,2]])
 
 # %%
