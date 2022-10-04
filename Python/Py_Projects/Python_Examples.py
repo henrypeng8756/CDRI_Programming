@@ -17,6 +17,8 @@ from turtle import left
 from urllib import response
 from xml.dom import registerDOMImplementation
 
+from mysqlx import SqlResult
+
 from symbol import import_from
 
 
@@ -1666,6 +1668,8 @@ plt.plot(x, y2, lw=8, color="y")
 plt.show()
 
 # %%
+import matplotlib.pyplot as plt
+import numpy as np
 x = np.linspace(0, 2*np.pi, 500)
 y1 = np.sin(x)
 y2 = np.cos(x)
@@ -2276,40 +2280,181 @@ con.commit()
 con.close()
 
 # %%
-import mariadb
+import sqlite3
+conn = sqlite3.connect('Output/test.sqlite')
+cursor = conn.execute('SELECT * FROM table01')
+print(cursor)
+print()
+
+rows = cursor.fetchall()
+print(rows)
+print()
+
+for row in rows:
+      print('{:d}\t{:s}'.format(row[0],row[1]))
+conn.close()
+
+# %%
+import sqlite3 
+conn = sqlite3.connect('Output/test.sqlite')
+cur = conn.execute('SELECT * FROM table01')
+for row in cur:
+      print(row)
+# %%
+import sqlite3
+conn = sqlite3.connect('Output/test.sqlite')
+cur = conn.execute('SELECT * FROM table01 where num=1')
+row = cur.fetchone()
+if row != None:
+      print('{}\t{}'.format(row[0],row[1]))
+conn.close()
+
+# %%
+import sqlite3
+conn = sqlite3.connect('Output/test.db')
+print('Opened database successfully')
+c = conn.cursor()
+c.execute("CREATE TABLE COMPANY \
+      (`ID` INT PRIMARY KEY NOT NULL,\
+      `NAME` TEXT NOT NULL,\
+      `AGE` INT NOT NULL,\
+      `ADDRESS` CHAR(50),\
+      `SALARY` REAL)")
+print("Table created successfully")
+conn.commit()
+conn.close()
+
+# %%
+import sqlite3
+conn = sqlite3.connect('Output/test.db')
+print('Opened database successfully')
+c = conn.cursor()
+c.execute("CREATE TABLE COMPANY \
+      (`ID` INT PRIMARY KEY NOT NULL,\
+      `NAME` TEXT NOT NULL,\
+      `AGE` INT NOT NULL,\
+      `ADDRESS` CHAR(50),\
+      `SALARY` REAL)")
+print("Table created successfully")
+c.execute("INSERT INTO COMPANY (`ID`,`NAME`,`AGE`,`ADDRESS`,`SALARY`) \
+      VALUES (1, 'Paul', 32, 'California', 20000.00), \
+            (2, 'Allen', 25, 'Texas', 15000.00), \
+            (3, 'Teddy', 23, 'Norway', 20000.00), \
+            (4, 'Mark', 25, 'Rich-Mond', 65000.00)")
+conn.commit()
+print("Records created successfully")
+conn.close()
+
+# %%
+import sqlite3
+conn = sqlite3.connect('Output/test.db')
+c = conn.cursor()
+cursor = c.execute("SELECT `id`, `name`, `address`, `salary` from COMPANY")
+for row in cursor:
+      print('ID = ', row[0])
+      print('NAME = ', row[1])
+      print('ADDRESS = ', row[2])
+      print('SALARY = ', row[3], "\n")
+print('Operation done successfully')
+conn.close 
+
+# %%
+import mysql.connector as mariadb
 #conn_params={
 #      'user': 'pytest',
 #      'password': '1qazXSW@',
 #      'host': '192.9.238.252',
 #      'database': 'pytest'
 #}
-
+# http://192.9.238.252/phpMyAdmin/server_privileges.php?db=pytest&checkprivsdb=pytest&viewing_mode=db
 con = mariadb.connect(
-      user= 'henry',
-      host= '192.9.238.252',
-      password= 'elaine201314',
-      database= 'henrydb_1'
+      user= 'pytest', # 輸入登入帳號
+      host= '192.9.238.252', # 輸入MariaDB IP
+      password= '2wsxCDE#', # 輸入登入密碼
+      database= 'pytest' # 輸入
 )
-mariadb.connect()
 cursor= con.cursor()
 
-sqlCreateTable = 'CREATE TABLE IF NOT EXISTS Countries \
-      ("Name" TEXT, "Country_Code" TEXT, "Capital" TEXT)'
+sqlCreateTable = '''CREATE TABLE IF NOT EXISTS Countries \
+      (`Name` VARCHAR(128) PRIMARY KEY NOT NULL,`Country_Code` TEXT, `Capital` TEXT)'''
 cursor.execute(sqlCreateTable)
 
-sqlInsertData = 'INSERT INTO Countries(Name, Country_Code, Capital) \
-      VALUES(?, ?, ?), ("Taiwan", "TWN", "Taipei")'
-cursor.execute(sqlInsertData)
+sqlInsert = "INSERT INTO Countries(`Name`, `Country_Code`, `Capital`) VALUES (?,?,?)" #("Japan","JPN","Tokyo"),("Taiwan", "TWN", "Taipei"),("Germany","GER","Berlin")'''  # ("Japan","JPN","Tokyo"),("Taiwan", "TWN", "Taipei"),("Germany","GER","Berlin")
+countryData = ("Japan","JPN","Tokyo") 
+cursor.execute(sqlInsert, countryData)
+con.commit()
 
-sqlSelectData = 'SELECT "Name", "Country_Code","Capital" FROM Countries'
+sqlSelectData = "SELECT `name`, `country_code`, `capital` FROM Countries"
 cursor.execute(sqlSelectData)
 
 row = cursor.fetchone()
 print(row,sep=' ')
 
+con.commit()
 cursor.close()
 con.close()
 
+# %%
+import sqlite3
+book = 'P0002, Python, 500'
+f = book.split(',')
+conn = sqlite3.connect('Output/csvBooks.sqlite')
+c = conn.cursor()
+c.execute("CREATE TABLE IF NOT EXISTS Books \
+      (`ID` INT PRIMARY KEY NOT NULL,\
+      `Title` TEXT NOT NULL,\
+      `Price` REAL)")
+sql = "INSERT INTO Books (`ID`, `Title`, `Price`) VALUES ('{0}','{1}',{2})"
+sql = sql.format(f[0],f[1],f[2])
+print(sql)
+cursor = conn.execute(sql)
+print(cursor.rowcount)
+conn.commit()
+conn.close()
+
+# %%
+import sqlite3
+d = {
+      'id': 'P0003',
+      'title': 'Node.js程式設計',
+      'price': 650
+}
+conn = sqlite3.connect("Output/jsonBooks.sqlite")
+c = conn.cursor()
+c.execute("CREATE TABLE IF NOT EXISTS Books \
+      (`ID` INT PRIMARY KEY NOT NULL,\
+      `Title` TEXT NOT NULL,\
+      `Price` REAL)")
+sql = "INSERT INTO Books (`ID`, `Title`, `Price`) VALUES ('{0}','{1}',{2})"
+sql = sql.format(d['id'],d['title'],d['price'])
+print(sql)
+cursor = conn.execute(sql)
+print(cursor.rowcount)
+conn.commit()
+conn.close()
+
+# %%
+import sqlite3
+import csv
+with open('Output/全國5大超商資料集.csv','r',encoding= 'utf_8') as file:
+      content = csv.reader(file)
+      cvrtList = list(content)
+conn = sqlite3.connect('Output/store.sqlite')
+c = conn.cursor()
+print('Opened database successfully','\n')
+c.execute("CREATE TABLE IF NOT EXISTS Stores \
+      (`Store_Name` TEXT, \
+      `Branch_ID` PRIMARY KEY NOT NULL , \
+      `Branch` TEXT, `Address` TEXT)")
+print('Table created successfully','\n')
+for rows in cvrtList[1:]:
+      csvInsert = "INSERT INTO Stores(Store_Name, Branch_ID, Branch, Address) \
+            VALUES('{0}', {1}, '{2}', '{3}')"
+      sql = csvInsert.format(rows[1],rows[2],rows[3],rows[4])
+      print(sql)
+      c.execute(sql)
+conn.commit()
+conn.close()
 
 
 # %%
