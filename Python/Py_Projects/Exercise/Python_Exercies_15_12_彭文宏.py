@@ -1,5 +1,4 @@
 # %%
-from re import A
 import numpy as np
 times=0
 cardList = {'cards':[{'A': 1}, {'2': 2}, {'3': 3}, {'4': 4}, {'5': 5}, {'6': 6},
@@ -39,11 +38,11 @@ while True:
     
  # %%
 cardDict = {'cards': [{'A': '1'}, {'2': '2'}, {'3': '3'}, {'4': '4'}, {'5': '5'}, {'6': '6'},
-            {'7': 7}, {'8': '8'}, {'9': '9'}, {'10': '10'}, {'J': '11'}, {'Q': '12'}, {'K': '13'}]}
+            {'7': '7'}, {'8': '8'}, {'9': '9'}, {'10': '10'}, {'J': '11'}, {'Q': '12'}, {'K': '13'}]}
 #cardList = {'A':1, '2':2, '3':3, '4':4, '5':5, '6':6, '7':7, '8':8, '9':9, '10':10, 'J': 11, 'Q': 12, 'K': 13}
 #g = input()
 print(cardDict)
-guess =12
+guess = 12
 #del cardDict['cards'][-1]
 for i in range(1,14):
     print('number: ', i)
@@ -52,6 +51,7 @@ for i in range(1,14):
     print('3: ', cardDict['cards'][i-1].values())
     print('4: ',('12' == cardDict['cards'][i-1].values()))    
     print(str(cardDict['cards'][guess].keys).strip("dict_values([''])"))
+    print(cardDict['cards'][guess].values)
 print(cardDict)
 #if g not in cardList:
 #    print('not in')
