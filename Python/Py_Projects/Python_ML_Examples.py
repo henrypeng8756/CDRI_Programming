@@ -232,4 +232,3 @@ plt.ylabel('Residual Value')
 plt.legend()
 plt.show()
 
-# %%
